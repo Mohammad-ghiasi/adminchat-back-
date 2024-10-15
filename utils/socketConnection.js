@@ -7,7 +7,8 @@ module.exports = (httpServer) => {
             origin: 'https://admin-chat-front.vercel.app', // Make sure this matches your frontend URL exactly (no trailing slashes)
             methods: ['GET', 'POST'],
             credentials: true, // Allow credentials (cookies, authorization headers, etc.)
-        }
+        },
+        transports: ['websocket', 'polling'], // Make sure websocket is allowed
     });
 
     io.use((socket, next) => {
