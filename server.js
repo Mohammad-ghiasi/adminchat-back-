@@ -22,7 +22,7 @@ const connectToDB = async () => {
 
 // Start app
 const startServer = () => {
-    const port = process.env.PORT || 3001;
+    const port = process.env.Admin-PORT || 3001;
     const httpServer = http.createServer(app);
     // IO
     const io = socketIoConnection(httpServer);
