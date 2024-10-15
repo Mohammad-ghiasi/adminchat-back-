@@ -1,7 +1,7 @@
 const express = require("express");
 const chatRoute = require('./routes/chats');
 const userRoute = require('./routes/user');
-const cors = require('cors');
+// const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
 const app = express();
@@ -11,12 +11,12 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use(express.json({ limit: '50mb' }));
 
 //* CORS Policy
-app.use(cors({
-    origin: 'https://admin-chat-front.vercel.app', // Corrected URL
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+// app.use(cors({
+//     origin: 'https://admin-chat-front.vercel.app', // Corrected URL
+//     credentials: true,
+//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+// }));
 
 
 app.use(cookieParser());
