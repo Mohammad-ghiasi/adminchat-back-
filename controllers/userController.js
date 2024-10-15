@@ -65,11 +65,7 @@ exports.createUser = async (req, res, next) => {
         const newUser = await userModle.create({ username, role });
         newUser.save();
 
-        // Set a cookie with the username and role
-        res.cookie('userData', JSON.stringify({ username, role, userId: newUser._id }), {
-            httpOnly: false, // Accessible only by the server
-            maxAge: 24 * 60 * 60 * 1000, // 1 day
-        });
+      
 
         res.status(201).json({ message: 'Data received and cookie set', newUser });
 
