@@ -20,7 +20,7 @@ app.use(express.json({ limit: '50mb' }))
 
 // Middleware
 app.use(cors({
-    origin: 'https://admin-chat-front.vercel.app/', // Your frontend URL
+    origin: '*', // Your frontend URL
     credentials: true
 }));
 app.use(cookieParser());
