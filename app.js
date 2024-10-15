@@ -20,7 +20,7 @@ app.use(express.json({ limit: '50mb' }))
 
 // Middleware
 app.use(cors({
-    origin: '*', // Your frontend URL
+    origin: 'https://admin-chat-front-k0bsasvrm-mohammad-ghiasis-projects.vercel.app/', // Your frontend URL
     credentials: true
 }));
 app.use(cookieParser());

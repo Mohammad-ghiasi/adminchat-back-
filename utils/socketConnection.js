@@ -4,7 +4,7 @@ const socketIo = require('socket.io');
 module.exports = (httpServer) => {
     const io = socketIo(httpServer, {
         cors: {
-            origin: '*',
+            origin: 'https://admin-chat-front-k0bsasvrm-mohammad-ghiasis-projects.vercel.app/',
             credentials: true,
         },
     });
