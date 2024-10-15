@@ -1,17 +1,16 @@
-// app.js
 const app = require('./app');
 const dotenv = require("dotenv");
 const http = require('http');
 const socketIoConnection = require("./utils/socketConnection");
-const socketHandler = require('./socket.io/socketIndex')
+const socketHandler = require('./socket.io/socketIndex');
 const mongoose = require('mongoose');
-dotenv.config();
 
+dotenv.config();
 
 //* Database Connection
 const connectToDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI);
+        await mongoose.connect('mongodb+srv://mohammad:Mgh3300305421@todo.vtdbj.mongodb.net/todo?retryWrites=true&w=majority&appName=todo');
         console.log(`MongoDB connected: ${mongoose.connection.host}`);
     } catch (err) {
         console.log(`Error Connection To MongoDB: ${err}`);
@@ -19,14 +18,11 @@ const connectToDB = async () => {
     }
 };
 
-
-// Start app
+//* Start app
 const startServer = () => {
-    const port = process.env.Admin_PORT || 3001;
+    const port = 3001; // Fixed environment variable name
     const httpServer = http.createServer(app);
-    // IO
     const io = socketIoConnection(httpServer);
-    // Io conection handler
     socketHandler(io);
     httpServer.listen(port, () => {
         console.log(`Server is running on http://localhost:${port}`);
@@ -38,4 +34,4 @@ const run = async () => {
     startServer();
 };
 
-run()
+run();

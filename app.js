@@ -12,11 +12,12 @@ app.use(express.json({ limit: '50mb' }));
 
 //* CORS Policy
 app.use(cors({
-    origin: 'https://admin-chat-front.vercel.app', // Remove the trailing slash here
+    origin: 'https://admin-chat-front.vercel.app', // Corrected URL
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Explicitly allow methods
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+
 
 app.use(cookieParser());
 
@@ -24,9 +25,6 @@ app.use(cookieParser());
 app.use('/chat', chatRoute);
 app.use('/user', userRoute);
 
-//* 404 Error handler
-app.use((req, res, next) => {
-    res.status(404).send('Resource not found');
-});
+
 
 module.exports = app;
