@@ -15,6 +15,7 @@ app.use(cors({
     origin: 'https://admin-chat-front.vercel.app', // Corrected URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true, // Add this line to allow credentials
 }));
 
 
