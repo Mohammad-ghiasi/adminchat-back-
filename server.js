@@ -20,7 +20,7 @@ const connectToDB = async () => {
 
 //* Start app
 const startServer = () => {
-    const port = 3001; // Fixed environment variable name
+    const port = process.env.Admin_PORT |3001; // Fixed environment variable name
     const httpServer = http.createServer(app);
     const io = socketIoConnection(httpServer);
     socketHandler(io);
