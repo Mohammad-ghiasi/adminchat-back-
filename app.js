@@ -12,13 +12,14 @@ app.use(express.json({ limit: '50mb' }));
 
 // * CORS Policy
 app.use(cors({
-    origin: 'http://localhost:3000', // Corrected URL
+    origin: 'https://admin-chat-front.vercel.app', // Corrected URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true, // Add this line to allow credentials
 }));
 
-    //https://admin-chat-front.vercel.app
+//http://localhost:3000
+//https://admin-chat-front.vercel.app
 
 
 app.use(cookieParser());
