@@ -140,8 +140,11 @@ exports.createMessage = (io) => {
                     { new: true } // Return the updated document
                 );
 
+                // Have to use IO to send this to all devisese :)
                 // Emit success message back to the client
-                socket.emit('messageAdded', { message: 'Message added successfully!', finalNewMessage });
+                io.emit('messageAdded', { message: 'Message added successfully!', finalNewMessage });
+                // ----------
+
             } catch (error) {
                 console.error(error); // Log the error for debugging
                 socket.emit('error', { message: 'An error occurred while adding the message', error });
